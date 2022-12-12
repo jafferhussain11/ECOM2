@@ -1,0 +1,171 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+
+* {
+    box-sizing: border-box;
+}
+html { overflow-y: scroll; }
+
+.homebody {
+
+    background-image: url(./images/PANCAKES_BACK.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: white;
+
+}
+
+.shopbody {
+   
+  
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: white;
+    background-color: rgb(58, 53, 53);
+
+}
+
+.cartbtn {
+    background-color: wheat;
+    color: white;
+    position: fixed;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    border-width: 1px;
+    right: 80px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.buy-btn {
+    
+   background-color: wheat;
+   color: white;
+   font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    border-width: 1px;
+   right: 80px;
+   transition: transform 0.3s ease-in-out;
+
+
+}
+
+
+
+nav {
+    background-color: crimson;
+    color: white;
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    transition: transform 0.3s ease-in-out;
+    
+}
+
+ 
+nav ul {
+   
+    align-items: center;
+    padding: 0;
+    list-style-type: none;
+    margin: 0;
+}
+
+nav ul li {
+    
+    display: inline-block;
+    margin: 0 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+nav a {
+    
+    color: white;
+    text-decoration: none;
+
+}
+
+.Starters-content{
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 6rem;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    margin: 2rem;
+    background-color: rgb(58, 53, 53);
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+.maincourse-content{
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 4rem;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    margin: 1rem;
+    background-color: rgb(58, 53, 53);
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+
+}
+.container img {
+
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.branch {
+
+    font-size: 2rem;
+}
+footer{
+    display:flex;
+    background:crimson;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    position: relative;
+    
+}
+footer .footer-icons{
+    width:50%;
+    display:flex;
+    align-items:center;
+    justify-content: space-around;
+}
+.footer-icons ul{
+    list-style-type: none;
+    display:flex;
+    margin-left:100%;; 
+}
+.footer-icons li{
+    padding:10px;
+    margin:0px 20px;
+}
+
+.footer-icons img{
+    width:30px;
+}
+
+
