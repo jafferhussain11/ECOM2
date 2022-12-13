@@ -3,6 +3,35 @@ const btn = document.getElementById('btn');
 const cart = document.getElementById('cart');
 
 const cart_items = document.querySelector('.cart-items');
+window.addEventListener('load', () => {
+
+    console.log('loaded');
+    axios.get('http://localhost:5000/products').then((products) => {
+
+        let productsList = products.data;
+        let output = '';
+        productsList.forEach((product) => {
+            output += `
+            <div class="shop-item">
+                <div class="shop-item-image">
+                    <img src="${product.imageUrl}" alt="">
+                </div>
+                <div class="shop-item-details">
+                    <h4 class="shop-item-title">${product.title}</h4>
+                    <h4 class="itemPrice">${product.price}</h4>
+                </div>
+                <div class="shop-item-button">
+                    <button>Add to cart</button>
+                </div>
+            </div>
+            `;
+        });
+        document.getElementById('maincourse').children[1].innerHTML = output;
+        //console.log(output);
+        console.log(products);
+        
+    }).catch(err=>console.log(err));
+});
 
 btn.addEventListener('click', () => {
     cart.classList.toggle('active');
