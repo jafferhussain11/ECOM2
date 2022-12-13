@@ -125,7 +125,6 @@ nav a {
     align-items: center;
     padding: 1rem;
     margin: 1rem;
-  
     row-gap: 4rem;
     background-color: rgb(58, 53, 53);
     border-radius: 10px;
@@ -193,7 +192,6 @@ nav a {
     
     width: 20%;
     height: 40px;
-    //align button to the right
     margin-left: auto;
 
 
@@ -220,12 +218,6 @@ nav a {
 
 .cart-quantity {
     width: 35%;
-}
-.cart-column {
-
-
-   
-    
 }
 
 .btn-danger {
