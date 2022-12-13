@@ -21,22 +21,26 @@ document.addEventListener('click', (e) => {
         let newItem = document.createElement('div');
         newItem.classList.add('cart-item');
         newItem.innerHTML = `
-            <img src="${img}" alt="">
-            <div class="cart-item-info">
+            
+            <div class="cart-column cart-item-info">
+                <img class="cartimg" src="${img}" alt="">
                 <h4>${title}</h4>
-                <p>${price}</p>
             </div>
+            <div class="cart-column cart-price">
+                <h4>${price}</h4>
+            </div>
+
             <button class="cart-item-button">Remove</button>
         `;
 
         cart_items.appendChild(newItem);
-        showNotification('Item added to cart', false);
+        showNotification(`Item ${title} was added to cart`, false);
 
 
     }
 });
 function showNotification(message, iserror){
-    const container = document.getElementById('container');
+    const container = document.getElementById('noti-container');
     const notification = document.createElement('div');
     notification.style.backgroundColor = iserror ? 'red' : 'wheat';
     notification.classList.add('notification');

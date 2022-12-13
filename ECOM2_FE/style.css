@@ -165,7 +165,11 @@ nav a {
 #cart {
     
     background-color: wheat;
-    position: fixed;
+    position : fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
     top: 0;
     right: 0;
     height: 100vh;
@@ -179,51 +183,60 @@ nav a {
 
 #cart.active {
     
-    transform: translateX(70%);
+    transform: translateX(20%);
     
 }
-.cart-column {
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid black;
-    margin-right: 1.5em;
-    padding-bottom: 10px;
-    margin-top: 10px;
-}
-
 .cart-row {
     display: flex;
+    font-size:18px;
 }
-
+.cart-header{
+    font-size:1.2rem;
+    font-weight: bold;
+}
 .cart-item {
-    width: 10%;
+    
     display: flex;
+    width: 40%;
 }
+.cart-item-button{
 
+    
+    width: 20%;
+    height: 40px;
+    //align button to the right
+    margin-left: auto;
+
+
+}
+.cart-items{
+
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    height: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+.cartimg {
+   
+    width: 80px;
+    border-radius: 8%;
+    margin-right: 20px;
+ 
+}
 .cart-price {
-    width: 10%;
-    font-size: 1.2em;
-    color: #333;
+    width: 20%;
 }
 
 .cart-quantity {
-    width: 10%;
+    width: 35%;
 }
+.cart-column {
 
-.cart-item-title {
-    color: #333;
-    margin-left: .5em;
-    font-size: 1.2em;
-}
 
-.cart-item-image {
    
-    width: 20px;
-    height: 20px;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 5px;
- 
+    
 }
 
 .btn-danger {
@@ -250,15 +263,6 @@ nav a {
     font-size: 1.2em;
     margin-right: 25px;
 }
-
-.cart-row:last-child {
-    border-bottom: 1px solid black;
-}
-
-.cart-row:last-child .cart-column {
-    border: none;
-}
-
 .cart-total {
     text-align: end;
     margin-top: 10px;
@@ -311,10 +315,10 @@ footer .footer-icons{
 .footer-icons img{
     width:30px;
 }
-#container{
+#noti-container{
     position:fixed;
-    bottom:10px;
-    right:10px;
+    bottom:100px;
+    right:20px;
 }
 .notification {
     background-color: crimson;
