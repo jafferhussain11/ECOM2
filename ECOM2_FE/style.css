@@ -185,6 +185,8 @@ nav a {
 .cart-item {
     
     display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
     width: 40%;
 }
 .cart-item-button{

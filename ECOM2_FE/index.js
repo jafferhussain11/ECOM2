@@ -55,11 +55,21 @@ document.addEventListener('click', (e) => {
         let id = Number(document.querySelector('.itemid').textContent);
         axios.post('http://localhost:5000/cart', {
             id: id,
+            
         }).then(res => {
-            console.log(res);
-        }).catch(err => console.log(err));
-        showNotification(`Item ${title} was added to cart`, false);
-
+            if(res.status == 200) {
+                console.log(res);
+                showNotification(`Item ${title} was added to cart`, false);
+            }
+            else{
+                throw new Error(response.data.message);
+            }
+        }).catch(err => {
+            
+            console.log(err);
+            showNotification(err.message, true);
+        });
+        
 
 
     }
@@ -89,6 +99,7 @@ function showCartProducts(cartProducts) {
     //console.log(img);
     let newItem = document.createElement('div');
     newItem.classList.add('cart-item');
+    newItem.classList.add('cart-row');
     newItem.innerHTML = `
         
         <div class="cart-column cart-item-info">
@@ -99,7 +110,7 @@ function showCartProducts(cartProducts) {
             <h4>${price}</h4>
         </div>
 
-        <button class="cart-item-button">Remove</button>
+        <button class="cart-item-button cart-column">Remove</button>
     `;
     cart_items.appendChild(newItem);
  });
