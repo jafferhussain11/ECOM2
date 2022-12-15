@@ -177,6 +177,9 @@ nav a {
 .cart-row {
     display: flex;
     font-size:18px;
+   
+;
+
 }
 .cart-header{
     font-size:1.2rem;
@@ -187,6 +190,8 @@ nav a {
     display: flex;
     align-items: center;
     margin-bottom: 1rem;
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
     width: 40%;
 }
 .cart-item-button{
