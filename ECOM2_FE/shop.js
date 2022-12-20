@@ -2,12 +2,13 @@
 const btn = document.getElementById('btn');
 const cart = document.getElementById('cart');
 let productsList = [];
+let cartItemsList = [];
 const cart_items = document.querySelector('.cart-items');
 window.addEventListener('load', () => {
 
     console.log('loaded');
     const page = 1;
-    axios.get(`http://localhost:5000/products?page=${page}`).then((products) => {
+    axios.get(`http://localhost:4000/products?page=${page}`).then((products) => {
 
     //console.log(products);    
     productsList = products.data.products;
@@ -23,8 +24,10 @@ btn.addEventListener('click', () => {
     cart.classList.toggle('active');
     btn.classList.toggle('active');
     const page = 1;
-    axios.get(`http://localhost:5000/cart?page=${page}`).then((cartProducts) => {
+    axios.get(`http://localhost:4000/cart?page=${page}`).then((cartProducts) => {
+        
         console.log(cartProducts);
+        cartItemsList = cartProducts.data.products;
         showCartProducts(cartProducts.data.products);
         showPagination(cartProducts.data,'cart');
     }).catch(err => console.log(err));
@@ -37,13 +40,21 @@ document.addEventListener('click', (e) => {
         let title = e.target.parentElement.parentElement.children[1].children[0].textContent;
         let id = productsList.find((product) => product.title == title).id; //find the id of the product
         //console.log(id);
-        axios.post('http://localhost:5000/cart', {
+        axios.post('http://localhost:4000/cart', {
             id: id,
             
         }).then(res => {
             if(res.status == 200) {
                 console.log(res);
                 showNotification(`Item ${title} was added to cart`, false);
+                axios.get(`http://localhost:4000/cart?page=1`).then((cartProducts) => {
+
+                    cartItemsList = cartProducts.data.products;
+                    showCartProducts(cartProducts.data.products);
+                    showPagination(cartProducts.data,'cart');
+                }).catch(err => console.log(err));
+
+
             }
             else{
                 throw new Error(response.data.message);
@@ -53,12 +64,36 @@ document.addEventListener('click', (e) => {
             console.log(err);
             showNotification(err.message, true);
         });
+     
         
 
 
     }
+    if(e.target.id == 'remove') {
+            
+        let title = e.target.parentElement.children[0].children[1].textContent;
+        let id = cartItemsList.find((product) => product.title == title).id; //find the id of the product
+        removeFromCart(id,title);
+    }
+    if(e.target.id == 'checkout') {
+       
+        axios.post('http://localhost:4000/create-order').then((res) => {
+            if(res.status == 200) {
+                
+                showNotification(`Order placed successfully`, false);
+                axios.get(`http://localhost:4000/cart?page=1`).then((cartProducts) => {
 
+                    cartItemsList = cartProducts.data.products;
+                    showCartProducts(cartProducts.data.products);
+                    showPagination(cartProducts.data,'cart');
+                }).catch(err => console.log(err));
+            }
+        }).catch(err => {
 
+            console.log(err);
+            showNotification(err.message, true);
+        });
+    }
 });
 function showNotification(message, iserror){
     const container = document.getElementById('noti-container');
@@ -74,29 +109,36 @@ function showNotification(message, iserror){
 
 function showCartProducts(cartProducts) {
     
- console.log(cartProducts);
+ //console.log(cartProducts);
  cart_items.innerHTML = "";
  cartProducts.forEach((product) => {
 
-    console.log(product);
+    //console.log(product);
     let title = product.title;
     let price = product.price;
     let img = product.imageUrl;
+    let quantity = product.quantity;
     //console.log(img);
     let newItem = document.createElement('div');
-    newItem.classList.add('cart-item');
     newItem.classList.add('cart-row');
     newItem.innerHTML = `
-        
-        <div class="cart-column cart-item-info">
+    
+        <span class="cart-column cart-item-info">
             <img class="cartimg" src="${img}" alt="">
             <h4>${title}</h4>
-        </div>
-        <div class="cart-column cart-price">
-            <h4>${price}</h4>
-        </div>
+        </span>
+        <span class="cart-column cart-price">
+            <h4>₹. ${price}</h4>
+        </span>
+        <span class="cart-column cart-quantity">
 
-        <button class="cart-item-button cart-column">Remove</button>
+            <h4>${quantity}</h4>
+
+        </span>
+      
+        <button id ="remove"class="cart-item-button cart-column">Remove</button>
+      
+    
     `;
     cart_items.appendChild(newItem);
  });
@@ -113,7 +155,7 @@ function listProducts(productsList){
             </div>
             <div class="shop-item-details">
                 <h4 class="shop-item-title">${product.title}</h4>
-                <h4 class="itemPrice">${product.price}</h4>
+                <h4 class="itemPrice">₹. ${product.price}</h4>
             </div>
             <div class="shop-item-button">
                 <button id='addbutn'>Add to cart</button>
@@ -131,7 +173,7 @@ function showPagination(pageData,flag) {
 
     if(flag == 'shop'){
 
-        console.log(pageData);
+        //console.log(pageData);
         const pagination = document.querySelector('.pagination');
         const prev = pageData.hasPreviousPage; 
         const next = pageData.hasNextPage;
@@ -189,7 +231,7 @@ function showPagination(pageData,flag) {
 }
     
 function getProducts(page) {
-    axios.get(`http://localhost:5000/products?page=${page}`).then((products) => {
+    axios.get(`http://localhost:4000/products?page=${page}`).then((products) => {
 
         productsList = products.data.products;
         //console.log(productsList);
@@ -200,9 +242,37 @@ function getProducts(page) {
 
 function getCartProducts(page) {
 
-    axios.get(`http://localhost:5000/cart?page=${page}`).then((cartProducts) => {
+    axios.get(`http://localhost:4000/cart?page=${page}`).then((cartProducts) => {
+        
         console.log(cartProducts);
+        cartItemsList = cartProducts.data.products;
         showCartProducts(cartProducts.data.products);
         showPagination(cartProducts.data,'cart');
     }).catch(err => console.log(err));
 }
+
+function removeFromCart(id,title) {
+    
+    axios.post(`http://localhost:4000/cart-delete-item/${id}`)
+      .then(res => {
+        if (res.status === 200) {
+          showNotification(`Item ${title} was removed from the cart`, false);
+          // Update the displayed list of products in the cart
+          const page = 1;
+          axios.get(`http://localhost:4000/cart?page=${page}`)
+            .then((cartProducts) => {
+              
+              cartItemsList = cartProducts.data.products;
+              showCartProducts(cartProducts.data.products);
+              showPagination(cartProducts.data, 'cart');
+            })
+            .catch(err => console.log(err));
+        } else {
+          throw new Error(response.data.message);
+        }
+      })
+      .catch(err => {
+        console.log(err);
+        showNotification(err.message, true);
+      });
+  }
