@@ -3,6 +3,10 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 
+const app = express(); //creating an express app object that has access to all the express methods and properties and can be used to configure the express app and to add middleware and routes to it
+const dotenv = require('dotenv');
+dotenv.config();
+
 const sequelize = require('./util/database'); //importing the sequelize object
 const Product = require('./models/product'); //importing the product model
 const User = require('./models/user'); //importing the user model
@@ -15,7 +19,7 @@ const cors = require('cors');
 
 const errorController = require('./controllers/error'); 
 
-const app = express(); //creating an express app object that has access to all the express methods and properties and can be used to configure the express app and to add middleware and routes to it
+
 
 app.use(cors());
 
