@@ -1,0 +1,392 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+
+* {
+    box-sizing: border-box;
+}
+html { overflow-y: scroll; }
+
+.homebody {
+
+    background-image: url(./images/PANCAKES_BACK.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: white;
+
+}
+
+.shopbody {
+  
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: white;
+    background-color: rgb(58, 53, 53);
+
+}
+
+.aboutbody {
+   
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: white;
+    background-color: rgb(58, 53, 53);
+
+}
+
+.cartbtn {
+    background-color: wheat;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    position: fixed;
+    font-weight: 600;
+    font-size: 1rem;
+    border-width: 1px;
+    right: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+.cartbtn.active {
+
+    transform: translateX(-700%);
+    
+
+}
+
+.buy-btn {
+    
+   background-color: wheat;
+   color: white;
+   font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    border-width: 1px;
+   right: 80px;
+   transition: transform 0.3s ease-in-out;
+
+
+}
+
+
+
+nav {
+    background-color: crimson;
+    color: wheat;
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    transition: transform 0.3s ease-in-out;
+    
+}
+
+ 
+nav ul {
+   
+    align-items: center;
+    padding: 0;
+    list-style-type: none;
+    margin: 0;
+}
+
+nav ul li {
+    
+    display: inline-block;
+    margin: 0 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+nav a {
+    
+    color: wheat;
+    text-decoration: none;
+
+}
+
+
+.Maincourse-content{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: white;
+    background-color: rgb(58, 53, 53);
+    padding: 1rem;
+    border-radius: 1rem;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+   
+
+}
+.container img {
+
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.branch {
+
+    font-size: 2rem;
+}
+.homecontainer{
+
+    margin-bottom: 26%;
+    
+
+}
+#cart {
+    
+    background-color: wheat;
+    position : fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+    top: 10%;
+    right: 0;
+    height: 90%;
+    width: 60%;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;  
+    
+}
+
+#cart.active {
+    
+    transform: translateX(40%);
+    
+}
+.cart-row {
+    display: flex;
+    font-size:18px;
+    width: 70%;
+   
+;
+
+}
+.cart-column {
+   
+    width: 50%;
+    padding: .5rem;
+    border-radius: 1px;
+    margin-bottom: 1rem;
+    background-color: rgb(58, 53, 53);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+
+
+}
+.cart-header{
+    font-size:1.2rem;
+    font-weight: bold;
+
+}
+.cart-item {
+    
+    display: flex;
+    margin-bottom: 1rem;
+    text-align: center;
+    padding: 1rem;
+    width: 30%;
+}
+.cart-item-button{
+
+    
+    width: 30%;
+    height: 40px;
+    display: flex;
+
+}
+.cart-items{
+
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    height: 100%;
+    width: 85%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+.cartimg {
+   
+    width: 70px;
+    border-radius: 8%;
+    margin-right: 20px;
+ 
+}
+.cart-price {
+    width: 20%;
+    text-align: center;
+}
+
+.cart-quantity {
+    width: 35%;
+    text-align: center;
+}
+.Chkout {
+    
+    position: fixed;
+    bottom: 20%;
+    left: 20%;
+
+    
+}
+
+.btn-danger {
+    color: white;
+    background-color: #EB5757;
+    border: none;
+    border-radius: .3em;
+    font-weight: bold;
+}
+
+.btn-danger:hover {
+    background-color: #CC4C4C;
+}
+
+.cart-quantity-input {
+    height: 34px;
+    width: 50px;
+    border-radius: 5px;
+    border: 1px solid #56CCF2;
+    background-color: #eee;
+    color: #333;
+    padding: 0;
+    text-align: center;
+    font-size: 1.2em;
+    margin-right: 25px;
+}
+.cart-total {
+    text-align: end;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.cart-total-title {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: black;
+    margin-right: 20px;
+}
+
+.cart-total-price {
+    color: #333;
+    font-size: 1.1em;
+}
+
+.btn-purchase {
+    display: block;
+    margin: 40px auto 80px auto;
+    font-size: 1.75em;
+}
+
+
+
+footer{
+    display:flex;
+    background:crimson;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    position:fixed;
+    bottom:0;
+    width: 100%;
+    height: 8%;
+    align-items: center;
+    
+}
+.footerorders{
+
+    position: static;
+}
+footer .footer-icons{
+    width:50%;
+    display:flex;
+    align-items:center;
+    justify-content: space-around;
+}
+.footer-icons ul{
+    list-style-type: none;
+    display:flex;
+    margin-left:100%;; 
+}
+.footer-icons li{
+    padding:10px;
+    margin:0px 20px;
+}
+
+.footer-icons img{
+    width:30px;
+}
+#noti-container{
+    position:fixed;
+    bottom:100px;
+    left:20px;
+}
+.notification {
+    background-color: crimson;
+    border-radius: 5px;
+    color: black;
+    padding: 2rem;
+    margin: 1rem;
+}
+
+.notification h4 span{
+    color:wheat(235, 33, 33);
+}
+.pagination{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+}
+.cart-pagination{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+    margin-bottom: 10%;
+}
+
+.order-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: wheat;
+    background-color: rgb(58, 53, 53);
+    padding: 1rem;
+    border-radius: 1rem;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+   
+
+
+}
+
+
+
+   
+
+
+
+

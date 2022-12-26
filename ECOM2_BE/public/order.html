@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EComm2 Project</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./order.js" defer></script>
+</head>
+<body class="shopbody">
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="order.html">Orders</a></li>
+        </ul>
+    </nav>
+    <br>
+   
+    <section id="cart">
+        <h2>CART</h2>
+        <div class="cart-row cart-header">
+            <span class='cart-item cart-column'>ITEM</span>
+            <span class='cart-price cart-column'>PRICE</span>
+            <span class='cart-quantity cart-column'>QUANTITY</span>
+        </div>
+        <div class='cart-items'>
+        </div>
+        <!-- Pagination cart-->
+         <section class = "cart-pagination">
+        
+        </section>
+        <form action="http://localhost:5000/create-order" method="POST">
+            
+            <button type="submit" class="btn btn-primary">Checkout!</button>
+        </form>
+    </section>
+
+    <button class="cart-btn-bottom"> <a href="#cart" class="cart-bottom">See the cart</a></button>
+     <header>
+        
+        <h1>Your Orders...</h1>
+    </header>
+    <section class="orders-list" >
+        
+
+
+    </section>
+   
+ 
+    <footer class="footerorders">
+        
+        <div class="footer-title">
+            © 2022 FaT People Food. All Rights Reserved.
+        </div>
+
+        <div class="footer-icons">
+            <ul>
+                <li>
+                    <a href="https://www.facebook.com/">
+                        <img src="https://img.icons8.com/fluent/48/000000/facebook-new.png"/>
+                    </a>
+    
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/">
+                        <img src="https://img.icons8.com/fluent/48/000000/instagram-new.png"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/">
+                        <img src="https://img.icons8.com/fluent/48/000000/twitter.png"/>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    </footer>
+      
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
+
+</body>
+</html>

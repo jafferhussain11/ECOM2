@@ -2,7 +2,7 @@ const addprodbutton = document.getElementById('addprod');
 
 addprodbutton.addEventListener('click', (e) => {
 
-    axios.post('http://localhost:4000/admin/addproduct', {
+    axios.post('http://13.234.120.222:3000/admin/addproduct', {
 
         title: document.getElementById('title').value,
         price: document.getElementById('price').value,

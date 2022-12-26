@@ -44,6 +44,10 @@ app.use((req, res, next) => { //middleware that adds a user to the request objec
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
 
+app.use((req,res)=>{
+
+    res.sendFile(path.join(__dirname, `public/${req.url}`));
+})
 app.use(errorController.get404);
 
 Product.belongsTo(User, {constraints: true, onDelete: 'CASCADE'}); //if user creates a product, the product will be deleted if the user is deleted
